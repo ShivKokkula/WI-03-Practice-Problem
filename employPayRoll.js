@@ -22,10 +22,10 @@ class EmployeePayRollData{
 
     toString(){
         const options = { year: 'numeric', month: 'long', day: 'numeric'};
-        // const empDate = this.startDate === undefined ? "undifined" :
-        //                 this.startDate.toLocalDateString("en-US",options);
+        const empDate = this.startDate === undefined ? "undifined" :
+                        this.startDate.toLocaleDateString("en-US",options);
         return "id = " + this.id + " name = " + this.name + " salary = " + this.salary +
-        " gender = " + this.gender + " startdate = " + this.startDate;
+        " gender = " + this.gender + " startdate = " + empDate;
     }
 }
 
