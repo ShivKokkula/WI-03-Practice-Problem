@@ -23,6 +23,13 @@ class EmployeePayRollData{
         else throw 'Name is incorrect';
     }
 
+    set id(id){
+        let idRegex = RegExp('^[1-9]\d$');
+        if (idRegex.test(id)) 
+            this._id = id;
+        else throw 'ID is incorrect';
+    }
+
     toString(){
         const options = { year: 'numeric', month: 'long', day: 'numeric'};
         const empDate = this.startDate === undefined ? "undifined" :
@@ -36,11 +43,24 @@ let employeePayRollData = new EmployeePayRollData(1,"Mark",30000);
 console.log(employeePayRollData.toString());
 
 try {
-    employeePayRollData.name = "Jo";
+    employeePayRollData.name = "John";
     console.log(employeePayRollData.toString());
 } catch (e) {
     console.error(e);
 }
 
-let newemployeePayRollData = new EmployeePayRollData(1,"Teressa",30000,"female", new Date());
-console.log(newemployeePayRollData.toString());
+try {
+    employeePayRollData.id = "John";
+    console.log(employeePayRollData.toString());
+} catch (e) {
+    console.error(e);
+}
+
+try {
+    let newemployeePayRollData = new EmployeePayRollData("a","Teressa",30000,"female", new Date());
+    console.log(newemployeePayRollData.toString());
+} catch (e) {
+    console.error(e);
+}
+
+
